@@ -29,6 +29,7 @@ class CameraFragment : Fragment() {
 
     private lateinit var imageUri: Uri
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,8 +44,8 @@ class CameraFragment : Fragment() {
 
     private fun intentCamera() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
-            activity?.packageManager?.let {
-                intent.resolveActivity(it).also {
+            activity?.packageManager?.let { packageManager ->
+                intent.resolveActivity(packageManager).also {
                     startActivityForResult(intent, REQUEST_CAMERA)
                 }
             }
