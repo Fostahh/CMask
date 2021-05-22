@@ -11,19 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <ImageView
             android:id="@+id/icon"
             android:layout_width="150dp"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:background="@drawable/maask"
             android:contentDescription="@string/mask"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.079" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_title"
@@ -31,15 +29,14 @@
             android:layout_height="47dp"
             android:layout_below="@+id/icon"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/robotobold"
             android:text="@string/title"
             android:textColor="@color/white"
             android:textSize="25sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icon"
-            app:layout_constraintVertical_bias="0.024" />
+            app:layout_constraintTop_toBottomOf="@+id/icon" />
 
         <TextView
             android:id="@+id/txt_about"
@@ -47,121 +44,54 @@
             android:layout_height="47dp"
             android:layout_below="@+id/icon"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto"
             android:text="@string/about_us"
             android:textColor="@color/white"
             android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icon"
-            app:layout_constraintVertical_bias="0.112" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
         <ImageView
-            android:id="@+id/img_about"
+            android:id="@+id/imageViewAbout"
             android:layout_width="110dp"
             android:layout_height="110dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.292"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_about"
-            app:layout_constraintVertical_bias="0.024" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_about" />
 
         <ImageView
-            android:id="@+id/img_about2"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/button_about"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.194"
-            app:layout_constraintStart_toEndOf="@+id/img_about"
-            app:layout_constraintTop_toBottomOf="@+id/txt_about"
-            app:layout_constraintVertical_bias="0.024" />
-
-        <ImageView
-            android:id="@+id/img_about3"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/button_about"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.292"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_about"
-            app:layout_constraintVertical_bias="0.081" />
-
-        <ImageView
-            android:id="@+id/img_about4"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/button_about"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.194"
-            app:layout_constraintStart_toEndOf="@+id/img_about3"
-            app:layout_constraintTop_toBottomOf="@+id/img_about2" />
-
-        <ImageView
-            android:id="@+id/img_about5"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/button_about"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_about3"/>
-
-        <ImageView
-            android:id="@+id/img_about6"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:background="@drawable/button_about"
-            android:backgroundTint="@color/white"
-            android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/img_about5"
-            app:layout_constraintTop_toBottomOf="@+id/img_about4"/>
-
-        <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageViewAboutDescription"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about"
-            app:layout_constraintEnd_toEndOf="@+id/img_about"
-            app:layout_constraintStart_toStartOf="@+id/img_about"
-            app:layout_constraintTop_toTopOf="@+id/img_about"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
-            android:id="@+id/txt_name"
+            android:id="@+id/textViewAboutName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about"
-            app:layout_constraintEnd_toEndOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toTopOf="@+id/imageView4" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription" />
 
         <TextView
-            android:id="@+id/txt_path"
+            android:id="@+id/textViewAboutPath"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -169,37 +99,49 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about"
-            app:layout_constraintEnd_toEndOf="@+id/imageView4"
-            app:layout_constraintStart_toStartOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageViewAbout2"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_about"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewAbout"
+            app:layout_constraintTop_toBottomOf="@+id/txt_about" />
+
+        <ImageView
+            android:id="@+id/imageViewAboutDescription2"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about2"
-            app:layout_constraintEnd_toEndOf="@+id/img_about2"
-            app:layout_constraintStart_toStartOf="@+id/img_about2"
-            app:layout_constraintTop_toTopOf="@+id/img_about2" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout2"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout2"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/txt_name2"
+            android:id="@+id/textViewAboutName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription2"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription2"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription2" />
 
         <TextView
-            android:id="@+id/txt_path2"
+            android:id="@+id/textViewAboutPath2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -207,38 +149,50 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about"
-            app:layout_constraintEnd_toEndOf="@+id/imageView5"
-            app:layout_constraintStart_toStartOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name"/>
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription2"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription2"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName2" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imageViewAbout3"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_about"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout" />
+
+        <ImageView
+            android:id="@+id/imageViewAboutDescription3"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about3"
-            app:layout_constraintEnd_toEndOf="@+id/img_about3"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout3"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout3"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/img_about3"
-            app:layout_constraintTop_toTopOf="@+id/img_about3" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout3"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout3"
+            app:layout_constraintVertical_bias="0.986" />
 
         <TextView
-            android:id="@+id/txt_name3"
+            android:id="@+id/textViewAboutName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about3"
-            app:layout_constraintEnd_toEndOf="@+id/imageView6"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"/>
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription3"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription3"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription3" />
 
         <TextView
-            android:id="@+id/txt_path3"
+            android:id="@+id/textViewAboutPath3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -246,37 +200,49 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about3"
-            app:layout_constraintEnd_toEndOf="@+id/imageView6"
-            app:layout_constraintStart_toStartOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name3"/>
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription3"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription3"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName3" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/imageViewAbout4"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_about"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewAbout3"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout2" />
+
+        <ImageView
+            android:id="@+id/imageViewAboutDescription4"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about4"
-            app:layout_constraintEnd_toEndOf="@+id/img_about4"
-            app:layout_constraintStart_toStartOf="@+id/img_about4"
-            app:layout_constraintTop_toTopOf="@+id/img_about4" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout4"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout4"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout4"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout4"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
-            android:id="@+id/txt_name4"
+            android:id="@+id/textViewAboutName4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about4"
-            app:layout_constraintEnd_toEndOf="@+id/imageView7"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription4"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription4"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription4" />
 
         <TextView
-            android:id="@+id/txt_path4"
+            android:id="@+id/textViewAboutPath4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -284,37 +250,51 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about4"
-            app:layout_constraintEnd_toEndOf="@+id/imageView7"
-            app:layout_constraintStart_toStartOf="@+id/imageView7"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name4" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription4"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription4"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName4" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imageViewAbout5"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_about"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout3" />
+
+        <ImageView
+            android:id="@+id/imageViewAboutDescription5"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about5"
-            app:layout_constraintEnd_toEndOf="@+id/img_about5"
-            app:layout_constraintStart_toStartOf="@+id/img_about5"
-            app:layout_constraintTop_toTopOf="@+id/img_about5" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout5"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout5"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout5"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout5"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/txt_name5"
+            android:id="@+id/textViewAboutName5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about5"
-            app:layout_constraintEnd_toEndOf="@+id/imageView8"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"/>
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription5"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription5"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription5" />
 
         <TextView
-            android:id="@+id/txt_path5"
+            android:id="@+id/textViewAboutPath5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -322,37 +302,52 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about5"
-            app:layout_constraintEnd_toEndOf="@+id/imageView8"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name5" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription5"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription5"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName5" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/imageViewAbout6"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_about"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageViewAbout5"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout4" />
+
+        <ImageView
+            android:id="@+id/imageViewAboutDescription6"
             android:layout_width="110dp"
             android:layout_height="35dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about6"
-            app:layout_constraintEnd_toEndOf="@+id/img_about6"
-            app:layout_constraintStart_toStartOf="@+id/img_about6"
-            app:layout_constraintTop_toTopOf="@+id/img_about6"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout6"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAbout6"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout6"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout6"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
-            android:id="@+id/txt_name6"
+            android:id="@+id/textViewAboutName6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
             android:text="@string/name_about"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about6"
-            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription6"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription6"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAboutDescription6" />
 
         <TextView
-            android:id="@+id/txt_path6"
+            android:id="@+id/textViewAboutPath6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
@@ -360,10 +355,9 @@
             android:text="@string/name_path"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_about6"
-            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toBottomOf="@+id/txt_name5" />
+            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription6"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription6"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAboutName6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
