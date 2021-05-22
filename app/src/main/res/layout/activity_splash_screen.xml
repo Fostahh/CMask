@@ -4,25 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.SignInOrSignUpActivity">
+    android:background="@color/blue_splash"
+    tools:context=".ui.activities.SplashScreen">
 
-    <Button
-        android:id="@+id/buttonSignIn"
+    <ImageView
+        android:id="@+id/imageViewHomeHeaderBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pp"
+        tools:ignore="ContentDescription" />
 </androidx.constraintlayout.widget.ConstraintLayout>

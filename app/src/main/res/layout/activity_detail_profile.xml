@@ -6,51 +6,110 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.DetailProfileActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageViewEditUserProfilePicture"
+    <ImageView
+        android:id="@+id/circleImageViewDetailUserAvatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/ic_baseline_camera_alt_24"
+        android:background="@drawable/person"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextEditUserName"
+    <TextView
+        android:id="@+id/textViewDetailUserChangeAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
+        android:layout_marginTop="8dp"
+        android:text="@string/change_profile_photo"
+        android:textColor="@color/blue_splash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageViewEditUserProfilePicture" />
+        app:layout_constraintTop_toBottomOf="@+id/circleImageViewDetailUserAvatar" />
 
-    <EditText
-        android:id="@+id/editTextEditUserUsername"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewDetailUserName"
+        android:layout_width="33dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/roboto"
+        android:text="@string/name"
+        android:textColor="@color/gray_detail"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEditUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserChangeAvatar" />
 
-    <EditText
-        android:id="@+id/editTextEditUserBirthday"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/textViewDetailUserNameValue"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Birthday"
-        android:inputType="textPersonName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/name_user"
+        android:textColor="@color/blue_splash"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEditUserUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserName" />
+
+    <TextView
+        android:id="@+id/textViewDetailUserEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/email"
+        android:textColor="@color/gray_detail"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserNameValue" />
+
+    <TextView
+        android:id="@+id/textViewDetailUserEmailValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/email_user"
+        android:textColor="@color/blue_splash"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserEmail" />
+
+    <TextView
+        android:id="@+id/textViewDetailUserPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/phone_number"
+        android:textColor="@color/gray_detail"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserEmailValue" />
+
+    <TextView
+        android:id="@+id/textViewDetailUserPhoneNumberValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/number_user"
+        android:textColor="@color/blue_splash"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserPhoneNumber" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.capstoneproject.cmask.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.capstoneproject.cmask.R
@@ -14,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val RC_SIGN_IN = 100
@@ -28,7 +29,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title = "Sign In"
+        supportActionBar?.elevation = 0f
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -39,20 +40,9 @@ class SignInActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        binding.buttonSignInLogin.setOnClickListener {
-            val email = binding.editTextSignInEmail.text.toString().trim()
-            val password = binding.editTextSignInPassword.text.toString().trim()
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill all the blank box", Toast.LENGTH_SHORT).show()
-            } else {
-                loginUser(email, password)
-            }
-        }
-
-        binding.buttonGoogleSignIn.setOnClickListener {
-            signIn()
-        }
+        binding.buttonSignIn.setOnClickListener(this)
+        binding.buttonSignUp.setOnClickListener(this)
+        binding.buttonGoogleSignIn.setOnClickListener(this)
     }
 
     private fun signIn() {
@@ -85,7 +75,6 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
-
     private fun loginUser(email: String, password: String) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) {
             if (it.isSuccessful) {
@@ -96,10 +85,29 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.buttonSignIn -> {
+                val email = binding.editTextSignInEmail.text.toString().trim()
+                val password = binding.editTextSignInPassword.text.toString().trim()
+
+                if (email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(this, "Please fill all the blank box", Toast.LENGTH_SHORT).show()
+                } else {
+                    loginUser(email, password)
+                }
+            }
+            R.id.buttonSignUp -> startActivity(Intent(this, SignUpActivity::class.java))
+            R.id.buttonGoogleSignIn -> signIn()
+        }
+    }
+
     override fun onStart() {
         super.onStart()
         if (mAuth.currentUser != null) {
             startActivity(Intent(this, HomeActivity::class.java))
         }
     }
+
+
 }

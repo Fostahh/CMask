@@ -57,7 +57,6 @@ class CameraFragment : Fragment() {
         if (requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
             val imgBitmap = data?.extras?.get("data") as Bitmap
             uploadImageToFirebase(imgBitmap)
-
         }
     }
 

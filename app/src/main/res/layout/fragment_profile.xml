@@ -1,30 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ProfileFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageViewUserProfilePicture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/ic_baseline_camera_alt_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Username"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageViewUserProfilePicture" />
+        <ImageView
+            android:id="@+id/imageViewBackground"
+            android:layout_width="572dp"
+            android:layout_height="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="508dp"
+            android:background="@drawable/button_home"
+            android:contentDescription="@string/button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageViewBlackOpacityBackground"
+            android:layout_width="577dp"
+            android:layout_height="300dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="508dp"
+            android:background="@drawable/button_home"
+            android:backgroundTint="@color/black_opacity2"
+            android:contentDescription="@string/button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageViewUserAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_home"
+            app:backgroundTint="@color/blue_splash"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewBackground"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/imageViewBackground"
+            app:layout_constraintTop_toTopOf="@+id/imageViewBackground"
+            app:layout_constraintVertical_bias="0.328" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonUserEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:contentDescription="@string/shape"
+            android:rotation="90"
+            android:src="@drawable/pencil"
+            app:backgroundTint="@color/blue_splash"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewBackground"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewBackground"
+            app:layout_constraintHorizontal_bias="0.684"
+            app:layout_constraintStart_toStartOf="@+id/imageViewBackground"
+            app:layout_constraintTop_toTopOf="@+id/imageViewBackground"
+            app:layout_constraintVertical_bias="0.812"
+            app:tint="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotobold"
+            android:text="@string/name_user"
+            android:textColor="@color/blue_splash"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageViewUserAvatar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/imageViewBlackOpactiryBackgroundRecentSection"
+            android:layout_width="761dp"
+            android:layout_height="545dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_home"
+            android:backgroundTint="@color/black_opacity2"
+            android:contentDescription="@string/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUserName"
+            app:layout_constraintWidth_percent=".5" />
+
+        <ImageView
+            android:id="@+id/imageViewRectangleRecentPhotoSection"
+            android:layout_width="305dp"
+            android:layout_height="299dp"
+            android:layout_marginBottom="64dp"
+            android:background="@drawable/button"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewRecentPhotoTitleBackground"
+            android:layout_width="119dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/button_see"
+            android:contentDescription="@string/shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewBlackOpactiryBackgroundRecentSection" />
+
+        <TextView
+            android:id="@+id/textViewRecentPhotoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/recent_photos"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewRecentPhotoTitleBackground"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewRecentPhotoTitleBackground"
+            app:layout_constraintStart_toStartOf="@+id/imageViewRecentPhotoTitleBackground"
+            app:layout_constraintTop_toTopOf="@+id/imageViewRecentPhotoTitleBackground" />
+
+        <ImageView
+            android:id="@+id/imageViewRecentPhotoItem1"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_see"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintHorizontal_bias="0.143"
+            app:layout_constraintStart_toStartOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoTitleBackground"
+            app:layout_constraintVertical_bias="0.062" />
+
+        <ImageView
+            android:id="@+id/imageViewRecentPhotoItem2"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_see"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toEndOf="@+id/imageViewRecentPhotoItem1"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoTitleBackground"
+            app:layout_constraintVertical_bias="0.062" />
+
+        <ImageView
+            android:id="@+id/imageViewRecentPhotoItem3"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_see"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintHorizontal_bias="0.143"
+            app:layout_constraintStart_toStartOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoItem1"
+            app:layout_constraintVertical_bias="0.242" />
+
+        <ImageView
+            android:id="@+id/imageViewRecentPhotoItem4"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_see"
+            android:contentDescription="@string/shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toEndOf="@+id/imageViewRecentPhotoItem1"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoItem2"
+            app:layout_constraintVertical_bias="0.242" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

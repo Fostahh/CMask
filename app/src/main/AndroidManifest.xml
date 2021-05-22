@@ -3,7 +3,6 @@
     package="com.capstoneproject.cmask">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -12,24 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMask">
-        <activity
-            android:name=".ui.activities.CameraResultActivity"
-            android:parentActivityName=".ui.activities.HomeActivity" />
-        <activity android:name=".ui.activities.DetailProfileActivity" />
-        <activity android:name=".ui.activities.HomeActivity" />
-        <activity
-            android:name=".ui.activities.SignUpActivity"
-            android:parentActivityName=".ui.activities.SignInOrSignUpActivity" />
-        <activity
-            android:name=".ui.activities.SignInActivity"
-            android:parentActivityName=".ui.activities.SignInOrSignUpActivity" />
-        <activity android:name=".ui.activities.SignInOrSignUpActivity">
+        <activity android:name=".ui.activities.AboutUsActivity"></activity>
+        <activity android:name=".ui.activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activities.CameraResultActivity"
+            android:parentActivityName=".ui.activities.HomeActivity" />
+        <activity
+            android:name=".ui.activities.DetailProfileActivity"
+            android:parentActivityName=".ui.activities.HomeActivity" />
+        <activity android:name=".ui.activities.HomeActivity" />
+        <activity
+            android:name=".ui.activities.SignUpActivity"
+            android:parentActivityName=".ui.activities.SignInActivity" />
+        <activity android:name=".ui.activities.SignInActivity" />
     </application>
 
 </manifest>
