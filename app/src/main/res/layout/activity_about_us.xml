@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <ImageView
             android:id="@+id/icon"
             android:layout_width="150dp"
@@ -74,7 +73,9 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textViewAboutName"
@@ -122,7 +123,9 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout2"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout2"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout2" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout2"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textViewAboutName2"
@@ -170,7 +173,10 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout3"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout3"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout3" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout3"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout3"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textViewAboutName3"
@@ -218,7 +224,9 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout4"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout4"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout4" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout4"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout4"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textViewAboutName4"
@@ -268,7 +276,9 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout5"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout5"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout5" />
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout5"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout5"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textViewAboutName5"
@@ -318,7 +328,10 @@
             android:contentDescription="@string/shape"
             app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout6"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout6"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAbout6" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageViewAbout6"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAbout6"
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textViewAboutName6"

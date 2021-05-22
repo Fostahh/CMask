@@ -4,38 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageViewBackground"
             android:layout_width="572dp"
-            android:layout_height="300dp"
+            android:layout_height="192dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="508dp"
-            android:background="@drawable/button_home"
+            android:background="@drawable/button_profile"
             android:contentDescription="@string/button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageViewBlackOpacityBackground"
-            android:layout_width="577dp"
-            android:layout_height="300dp"
+            android:layout_width="572dp"
+            android:layout_height="192dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="508dp"
-            android:background="@drawable/button_home"
+            android:background="@drawable/button_profile"
             android:backgroundTint="@color/black_opacity2"
             android:contentDescription="@string/button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageViewUserAvatar"
@@ -45,10 +47,9 @@
             app:backgroundTint="@color/blue_splash"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewBackground"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/imageViewBackground"
             app:layout_constraintTop_toTopOf="@+id/imageViewBackground"
-            app:layout_constraintVertical_bias="0.328" />
+            app:layout_constraintVertical_bias="0.183" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtonUserEdit"
@@ -86,9 +87,10 @@
             android:layout_width="761dp"
             android:layout_height="545dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/button_home"
+            android:background="@drawable/button_profile"
             android:backgroundTint="@color/black_opacity2"
             android:contentDescription="@string/button"
+            android:rotation="180"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewUserName"
@@ -98,13 +100,14 @@
             android:id="@+id/imageViewRectangleRecentPhotoSection"
             android:layout_width="305dp"
             android:layout_height="299dp"
-            android:layout_marginBottom="64dp"
             android:background="@drawable/button"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewBlackOpactiryBackgroundRecentSection"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewBlackOpactiryBackgroundRecentSection"
+            app:layout_constraintVertical_bias="0.268" />
 
         <ImageView
             android:id="@+id/imageViewRecentPhotoTitleBackground"
@@ -163,12 +166,12 @@
             android:layout_height="110dp"
             android:background="@drawable/button_see"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewRectangleRecentPhotoSection"
             app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
             app:layout_constraintHorizontal_bias="0.143"
             app:layout_constraintStart_toStartOf="@+id/imageViewRectangleRecentPhotoSection"
             app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoItem1"
-            app:layout_constraintVertical_bias="0.242" />
+            app:layout_constraintVertical_bias="0.404" />
 
         <ImageView
             android:id="@+id/imageViewRecentPhotoItem4"
@@ -176,12 +179,12 @@
             android:layout_height="110dp"
             android:background="@drawable/button_see"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewRectangleRecentPhotoSection"
             app:layout_constraintEnd_toEndOf="@+id/imageViewRectangleRecentPhotoSection"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toEndOf="@+id/imageViewRecentPhotoItem1"
             app:layout_constraintTop_toBottomOf="@+id/imageViewRecentPhotoItem2"
-            app:layout_constraintVertical_bias="0.242" />
+            app:layout_constraintVertical_bias="0.404" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
