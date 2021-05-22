@@ -176,7 +176,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout3"
             app:layout_constraintTop_toTopOf="@+id/imageViewAbout3"
-            app:layout_constraintVertical_bias="0.986" />
+            app:layout_constraintVertical_bias="1" />
 
         <TextView
             android:id="@+id/textViewAboutName3"
