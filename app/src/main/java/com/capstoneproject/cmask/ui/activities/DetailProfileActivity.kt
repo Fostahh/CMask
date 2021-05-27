@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.capstoneproject.cmask.databinding.ActivityDetailProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -16,6 +17,7 @@ class DetailProfileActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
     private var imageUri: Uri? = null
+    private val TAG = DetailProfileActivity::class.qualifiedName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +30,9 @@ class DetailProfileActivity : AppCompatActivity() {
                 FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser.uid)
 
             databaseReference.get().addOnSuccessListener {
-                binding.textViewDetailUserNameValue.text = it.child("username").value.toString()
-                binding.textViewDetailUserEmailValue.text = it.child("email").value.toString()
-                binding.textViewDetailUserPhoneNumberValue.text =
-                    it.child("phoneNumber").value.toString()
+                binding.textViewDetailUserNameValue.setText(it.child("username").value.toString())
+                binding.textViewDetailUserEmailValue.setText(it.child("email").value.toString())
+                binding.textViewDetailUserPhoneNumberValue.setText(it.child("phoneNumber").value.toString())
             }
         }
 
@@ -46,9 +47,10 @@ class DetailProfileActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == 100 && resultCode == RESULT_OK && data != null) {
+        if (requestCode == 100 && resultCode == RESULT_OK && data != null) {
             imageUri = data.data
-            binding.circleImageViewDetailUserAvatar.setImageURI(imageUri)
+            Log.d(TAG, "${imageUri}")
+            Picasso.get().load(imageUri).into(binding.circleImageViewDetailUserAvatar)
         }
     }
 

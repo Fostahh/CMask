@@ -1,9 +1,9 @@
 package com.capstoneproject.cmask.ui.fragments
 
+import android.Manifest
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.LayoutInflater
@@ -11,15 +11,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.capstoneproject.cmask.R
+import androidx.lifecycle.ViewModelProvider
+import com.capstoneproject.cmask.databinding.FragmentCameraBinding
+import com.capstoneproject.cmask.di.Injection
 import com.capstoneproject.cmask.ui.activities.CameraResultActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
+import com.capstoneproject.cmask.viewmodel.CameraViewModel
+import com.capstoneproject.cmask.viewmodel.ViewModelFactory
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.ByteArrayOutputStream
-import java.text.SimpleDateFormat
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
-import kotlin.collections.HashMap
+
 
 class CameraFragment : Fragment() {
 
@@ -27,14 +37,14 @@ class CameraFragment : Fragment() {
         const val REQUEST_CAMERA = 100
     }
 
-    private lateinit var imageUri: Uri
-
+    private lateinit var binding: FragmentCameraBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_camera, container, false)
+    ): View {
+        binding = FragmentCameraBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,74 +53,73 @@ class CameraFragment : Fragment() {
     }
 
     private fun intentCamera() {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
-            activity?.packageManager?.let { packageManager ->
-                intent.resolveActivity(packageManager).also {
+        Dexter.withContext(activity).withPermissions(
+            listOf(
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+        ).withListener(object : MultiplePermissionsListener {
+            override fun onPermissionsChecked(p0: MultiplePermissionsReport?) {
+                if (p0!!.areAllPermissionsGranted()) {
+                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                     startActivityForResult(intent, REQUEST_CAMERA)
+                } else {
+                    Toast.makeText(
+                        activity,
+                        "You must accept all the permission to use this feature",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
-        }
+
+            override fun onPermissionRationaleShouldBeShown(
+                p0: MutableList<PermissionRequest>?,
+                p1: PermissionToken?
+            ) {
+
+            }
+
+        }).check()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CAMERA && resultCode == RESULT_OK) {
-            val imgBitmap = data?.extras?.get("data") as Bitmap
-            uploadImageToFirebase(imgBitmap)
+            val imageBitmap = data?.extras?.get("data") as Bitmap
+            convertFileToMultipartBody("${UUID.randomUUID()}.jpg", imageBitmap)
+            binding.progressBar.visibility = View.VISIBLE
         }
     }
 
-    private fun uploadImageToFirebase(imgBitmap: Bitmap) {
+    private fun convertBitmapToFile(fileName: String, imageBitmap: Bitmap): File {
+        val file = File(context?.cacheDir, fileName)
+        file.createNewFile()
+
         val baos = ByteArrayOutputStream()
-        val ref =
-            FirebaseStorage.getInstance().reference.child("img/${FirebaseAuth.getInstance().currentUser?.uid}")
-        imgBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val image = baos.toByteArray()
 
-        ref.putBytes(image).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                ref.downloadUrl.addOnCompleteListener {
-                    it.result?.let { uri ->
+        val fos = FileOutputStream(file)
+        fos.write(image)
+        fos.flush()
+        fos.close()
 
-                        imageUri = uri
-                        val historyInfo = HashMap<String, Any>()
-                        historyInfo["date"] = getCurrentDate()
-                        historyInfo["time"] = getCurrentTime()
-                        FirebaseAuth.getInstance().currentUser?.let { firebaseUser ->
-                            FirebaseDatabase.getInstance().reference.child("History")
-                                .child(firebaseUser.uid).updateChildren(historyInfo)
-                                .addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        startActivity(
-                                            Intent(
-                                                activity,
-                                                CameraResultActivity::class.java
-                                            )
-                                        )
-                                    } else {
-                                        Toast.makeText(
-                                            context,
-                                            it.exception?.message,
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                }
-                        }
-                    }
-                }
-            }
-        }
+        return file
     }
 
-    private fun getCurrentDate(): String {
-        val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
-        val date = Date()
-        return dateFormat.format(date)
-    }
+    private fun convertFileToMultipartBody(fileName: String, imageBitmap: Bitmap) {
+        val leftImageFile = convertBitmapToFile(fileName, imageBitmap)
+        val reqFile = leftImageFile.asRequestBody("image/*".toMediaTypeOrNull())
+        val body = MultipartBody.Part.createFormData("photo", leftImageFile.name, reqFile)
 
-    private fun getCurrentTime(): String {
-        val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-        val time = Date()
-        return timeFormat.format(time)
+        val factory = ViewModelFactory(Injection.provideImageResultRepository())
+        val viewModel = ViewModelProvider(this, factory)[CameraViewModel::class.java]
+        viewModel.uploadImage(body).observe(viewLifecycleOwner, {
+            val intent = Intent(context, CameraResultActivity::class.java)
+            intent.putExtra("image", imageBitmap)
+            intent.putExtra(CameraResultActivity.DATA_IMAGE_RESULT, it)
+            startActivity(intent)
+        })
     }
 }

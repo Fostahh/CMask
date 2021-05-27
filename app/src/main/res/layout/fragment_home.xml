@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageViewHomeHeaderBackground"
@@ -133,110 +133,65 @@
         <ImageView
             android:id="@+id/square_2"
             android:layout_width="350dp"
-            android:layout_height="130dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/full_rectangle"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fab_next"
-            app:layout_constraintVertical_bias="0.083" />
+            app:layout_constraintTop_toBottomOf="@+id/fab_next" />
 
-        <TextView
-            android:id="@+id/txt_see"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/robotobold"
-            android:text="@string/see_the"
-            android:textColor="@color/blue_splash"
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="@+id/square_2"
             app:layout_constraintEnd_toEndOf="@+id/square_2"
-            app:layout_constraintHorizontal_bias="0.12"
-            app:layout_constraintStart_toStartOf="@+id/square_2"
-            app:layout_constraintTop_toTopOf="@+id/square_2"
-            app:layout_constraintVertical_bias="0.27" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_see"
-            android:layout_width="93dp"
-            android:layout_height="35dp"
-            android:background="@drawable/button_see"
-            android:fontFamily="@font/roboto"
-            android:text="@string/see_here"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/square_2"
-            app:layout_constraintEnd_toEndOf="@+id/square_2"
-            app:layout_constraintHorizontal_bias="0.242"
-            app:layout_constraintStart_toStartOf="@+id/square_2"
-            app:layout_constraintTop_toTopOf="@+id/square_2"
-            app:layout_constraintVertical_bias="0.766" />
-
-        <ImageView
-            android:id="@+id/imageViewAboutDescription"
-            android:layout_width="112dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/ic_statistics"
-            android:contentDescription="@string/statistic"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.837"
             app:layout_constraintStart_toStartOf="@+id/square_2"
             app:layout_constraintTop_toTopOf="@+id/square_2" />
 
         <TextView
             android:id="@+id/txt_allPhotos"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/robotobold"
             android:text="@string/all_photos"
             android:textColor="@color/blue_splash"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.115"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/square_2"
-            app:layout_constraintVertical_bias="0.115" />
+            app:layout_constraintTop_toBottomOf="@+id/square_2" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_imageAll1"
             android:layout_width="126dp"
             android:layout_height="126dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/button_see"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.133"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos"
-            app:layout_constraintVertical_bias="0.081" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_imageAll2"
             android:layout_width="126dp"
             android:layout_height="126dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="84dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/button_see"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/btn_imageAll1"
-            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos"
-            app:layout_constraintVertical_bias="0.081" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_imageAll3"
             android:layout_width="126dp"
             android:layout_height="126dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/button_see"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/btn_imageAll2"
-            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos"
-            app:layout_constraintVertical_bias="0.081" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_allPhotos" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

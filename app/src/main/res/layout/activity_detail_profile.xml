@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.DetailProfileActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageViewDetailUserAvatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/person"
+        tools:src="@tools:sample/avatars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserChangeAvatar" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewDetailUserNameValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserNameValue" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewDetailUserEmailValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDetailUserEmailValue" />
 
-    <TextView
+    <EditText
         android:id="@+id/textViewDetailUserPhoneNumberValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

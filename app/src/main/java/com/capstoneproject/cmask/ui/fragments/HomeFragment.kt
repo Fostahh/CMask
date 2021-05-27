@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.capstoneproject.cmask.R
 import com.capstoneproject.cmask.databinding.FragmentHomeBinding
 import com.capstoneproject.cmask.ui.activities.AboutUsActivity
@@ -38,6 +40,17 @@ class HomeFragment : Fragment() {
                 binding.textViewHomeUser.text = textUsername
             }
         }
+
+        binding.webView.isVerticalScrollBarEnabled = true
+        binding.webView.isHorizontalScrollBarEnabled = true
+
+        binding.webView.webViewClient = object: WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl("http://35.219.90.227/backend/index.php/chart")
+                return true
+            }
+        }
+        binding.webView.loadUrl("http://35.219.90.227/backend/index.php/chart")
 
         binding.imageButtonAboutUs.setOnClickListener {
             startActivity(Intent(context, AboutUsActivity::class.java))
