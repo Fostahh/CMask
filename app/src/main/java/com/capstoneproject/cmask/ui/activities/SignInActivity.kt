@@ -11,8 +11,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.internal.ContextUtils.getActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.FirebaseDatabase
 
 
 class SignInActivity : AppCompatActivity(), View.OnClickListener {
@@ -65,12 +67,25 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         mAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this, HomeActivity::class.java))
+                    mAuth.currentUser?.let { firebaseUser ->
+                        val databaseReference = FirebaseDatabase.getInstance().reference.child("Users")
+                            .child(firebaseUser.uid)
+                        databaseReference.get().addOnSuccessListener {
+                            if(it.child("username").value == null) {
+                                startActivity (Intent(this, FirstGoogleSignInActivity::class.java))
+                            } else {
+                                startActivity (Intent(this, HomeActivity::class.java))
+                            }
+                        }
+
+                    }
                 }
             }
     }

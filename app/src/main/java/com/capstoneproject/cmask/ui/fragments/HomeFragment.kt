@@ -1,6 +1,7 @@
 package com.capstoneproject.cmask.ui.fragments
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -41,15 +42,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.webView.isVerticalScrollBarEnabled = true
-        binding.webView.isHorizontalScrollBarEnabled = true
-
-        binding.webView.webViewClient = object: WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                view?.loadUrl("http://35.219.90.227/backend/index.php/chart")
-                return true
-            }
-        }
         binding.webView.loadUrl("http://35.219.90.227/backend/index.php/chart")
 
         binding.imageButtonAboutUs.setOnClickListener {

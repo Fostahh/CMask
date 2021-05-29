@@ -2,11 +2,13 @@ package com.capstoneproject.cmask.ui.activities
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.capstoneproject.cmask.databinding.ActivityDetailProfileBinding
+import android.os.Bundle
+import android.widget.Toast
+import com.capstoneproject.cmask.databinding.ActivityFirstGoogleSignInBinding
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -14,72 +16,57 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
 
+class FirstGoogleSignInActivity : AppCompatActivity() {
 
-class DetailProfileActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityDetailProfileBinding
+    private lateinit var binding: ActivityFirstGoogleSignInBinding
     private lateinit var mAuth: FirebaseAuth
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
     private var imageUri: Uri? = null
-    private val TAG = DetailProfileActivity::class.qualifiedName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailProfileBinding.inflate(layoutInflater)
+        binding = ActivityFirstGoogleSignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
-        storageReference = FirebaseStorage.getInstance().reference.child("users/" + mAuth.currentUser?.uid + "/profile.jpg")
-
-        binding.progressBar2.visibility = View.VISIBLE
-        binding.linearLayoutVertical.visibility = View.GONE
-
-        mAuth.currentUser?.let { firebaseUser ->
-            databaseReference = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUser.uid)
-
-            storageReference.downloadUrl.addOnSuccessListener {
-                Picasso.get().load(it).into(binding.circleImageViewDetailUserAvatar)
-                binding.progressBar2.visibility = View.GONE
-                binding.linearLayoutVertical.visibility = View.VISIBLE
-            }
-
-            databaseReference.get().addOnSuccessListener {
-                binding.editTextDetailUserUsernameValue.setText(it.child("username").value.toString())
-                binding.editTextDetailUserEmailValue.setText(it.child("email").value.toString())
-                binding.editTextDetailUserPhonenumberValue.setText(it.child("phoneNumber").value.toString())
-            }
-
+        storageReference =
+            FirebaseStorage.getInstance().reference.child("users/" + mAuth.currentUser?.uid + "/profile.jpg")
+        mAuth.currentUser?.let {
+            databaseReference =
+                FirebaseDatabase.getInstance().reference.child("Users").child(it.uid)
         }
 
-        binding.textViewDetailUserChangeAvatar.setOnClickListener {
+        binding.textViewFirstGoogleSignInChangeAvatar.setOnClickListener {
             val intent = Intent()
             intent.type = "image/*"
             intent.action = Intent.ACTION_PICK
             startActivityForResult(intent, 100)
         }
 
-        binding.buttonUpdateProfile.setOnClickListener {
-            updateProfile()
+        binding.buttonConfirmGoogleSignIn.setOnClickListener {
+            insertDataProfile()
         }
     }
 
-    private fun updateProfile() {
-        val email = binding.editTextDetailUserEmailValue.text.toString().trim()
-        val username = binding.editTextDetailUserUsernameValue.text.toString().trim()
-        val phoneNumber = binding.editTextDetailUserPhonenumberValue.text.toString().trim()
+    private fun insertDataProfile() {
+        val username = binding.editTextFirstGoogleSignInUsernameValue.text.toString().trim()
+        val phoneNumber = binding.editTextFirstGoogleSignInPhonenumberValue.text.toString().trim()
+
+        val email: String? = mAuth.currentUser?.email
 
         val userInfo = HashMap<String, Any>()
-        userInfo["email"] = email
-        userInfo["phoneNumber"] = phoneNumber
+        userInfo["email"] = email.toString()
         userInfo["username"] = username
+        userInfo["phoneNumber"] = phoneNumber
 
         databaseReference.updateChildren(userInfo).addOnCompleteListener {
             if (it.isSuccessful) {
-                finish()
+                Toast.makeText(this, "Insert Data Success", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 Toast.makeText(
-                    applicationContext,
+                    this,
                     "${it.exception?.message}",
                     Toast.LENGTH_SHORT
                 ).show()
@@ -89,10 +76,9 @@ class DetailProfileActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (requestCode == 100 && resultCode == RESULT_OK && data != null) {
             imageUri = data.data
-            Picasso.get().load(imageUri).into(binding.circleImageViewDetailUserAvatar)
+            Picasso.get().load(imageUri).into(binding.circleImageViewFirstGoogleSignInUserAvatar)
             uploadProfileImage(imageUri)
         }
     }

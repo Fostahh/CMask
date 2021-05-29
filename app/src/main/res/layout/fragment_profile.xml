@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.fragments.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,15 +41,15 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImageViewUserAvatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_home"
+            android:layout_width="150dp"
+            android:layout_height="125dp"
             app:backgroundTint="@color/blue_splash"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewBackground"
             app:layout_constraintStart_toStartOf="@+id/imageViewBackground"
             app:layout_constraintTop_toTopOf="@+id/imageViewBackground"
-            app:layout_constraintVertical_bias="0.183" />
+            app:layout_constraintVertical_bias="0.183"
+            tools:src="@tools:sample/avatars" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButtonUserEdit"

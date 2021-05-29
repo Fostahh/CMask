@@ -43,4 +43,8 @@
     <string name="wrong">Wrong</string>
     <string name="date1">Date</string>
     <string name="date2">Date</string>
+    <string name="keterangan">Keterangan: %s</string>
+    <string name="akurasi">Akurasi: %d</string>
+    <string name="insert_your_password_here">Enter your password</string>
+    <string name="enter_your_username">Enter your username</string>
 </resources>

@@ -11,6 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewHomeHeaderBackground" />
+
         <ImageView
             android:id="@+id/imageViewHomeHeaderBackground"
             android:layout_width="match_parent"
@@ -133,7 +144,7 @@
         <ImageView
             android:id="@+id/square_2"
             android:layout_width="350dp"
-            android:layout_height="250dp"
+            android:layout_height="210dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/full_rectangle"
             android:contentDescription="@string/shape"

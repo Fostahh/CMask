@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.capstoneproject.cmask.data.source.DataSource
 import com.capstoneproject.cmask.data.source.remote.network.ApiConfig
+import com.capstoneproject.cmask.data.source.remote.response.ObjectDetectionResponse
 import com.capstoneproject.cmask.data.source.remote.response.UploadResponse
 import com.capstoneproject.cmask.utils.IdlingResource
 import okhttp3.MultipartBody
@@ -33,6 +34,32 @@ class RemoteDataSource : DataSource {
             }
 
             override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+                Log.d("onFailure", t.localizedMessage as String)
+            }
+
+        })
+
+        return imageResult
+    }
+
+    override fun uploadImageObjectDetection(url: String, body: MultipartBody.Part): LiveData<ObjectDetectionResponse> {
+        val imageResult = MutableLiveData<ObjectDetectionResponse>()
+
+        IdlingResource.increment()
+        ApiConfig.apiInstance.uploadImageObjectDetection(url, body).enqueue(object: Callback<ObjectDetectionResponse> {
+            override fun onResponse(
+                call: Call<ObjectDetectionResponse>,
+                response: Response<ObjectDetectionResponse>
+            ) {
+                if(response.isSuccessful) {
+                    response.body()?.let {
+                        imageResult.postValue(it)
+                    }
+                    IdlingResource.decrement()
+                }
+            }
+
+            override fun onFailure(call: Call<ObjectDetectionResponse>, t: Throwable) {
                 Log.d("onFailure", t.localizedMessage as String)
             }
 
