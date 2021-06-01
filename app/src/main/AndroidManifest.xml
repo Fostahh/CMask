@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CMask">
-        <activity android:name=".ui.activities.FirstGoogleSignInActivity"></activity>
+        <activity android:name=".ui.activities.HistoryActivity"/>
+        <activity android:name=".ui.activities.FirstGoogleSignInActivity" />
         <activity
             android:name=".ui.activities.AboutUsActivity"
             android:parentActivityName=".ui.activities.HomeActivity" />

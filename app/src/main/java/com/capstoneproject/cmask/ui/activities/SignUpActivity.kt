@@ -34,12 +34,14 @@ class SignUpActivity : AppCompatActivity() {
             } else {
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) {
                     if (it.isSuccessful) {
-                        Toast.makeText(this, "Account successfully created", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Account successfully created", Toast.LENGTH_SHORT)
+                            .show()
 
                         val userId = mAuth.currentUser?.uid
                         userId?.let {
                             databaseReference =
-                                FirebaseDatabase.getInstance().reference.child("Users").child(userId)
+                                FirebaseDatabase.getInstance().reference.child("Users")
+                                    .child(userId)
                             val user = HashMap<String, Any>()
                             user["username"] = username
                             user["email"] = email
@@ -55,5 +57,10 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity(Intent(this, SignInActivity::class.java))
     }
 }

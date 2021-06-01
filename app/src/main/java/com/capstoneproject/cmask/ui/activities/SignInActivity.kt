@@ -11,7 +11,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.material.internal.ContextUtils.getActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
@@ -43,7 +42,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.buttonSignIn.setOnClickListener(this)
-        binding.buttonSignUp.setOnClickListener(this)
+        binding.textView3.setOnClickListener(this)
         binding.buttonGoogleSignIn.setOnClickListener(this)
     }
 
@@ -66,8 +65,6 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
-
 
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
@@ -112,7 +109,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
                     loginUser(email, password)
                 }
             }
-            R.id.buttonSignUp -> startActivity(Intent(this, SignUpActivity::class.java))
+            R.id.textView3 -> startActivity(Intent(this, SignUpActivity::class.java))
             R.id.buttonGoogleSignIn -> signIn()
         }
     }
@@ -123,6 +120,4 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
     }
-
-
 }

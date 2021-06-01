@@ -22,7 +22,6 @@ class DetailProfileActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var storageReference: StorageReference
     private var imageUri: Uri? = null
-    private val TAG = DetailProfileActivity::class.qualifiedName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

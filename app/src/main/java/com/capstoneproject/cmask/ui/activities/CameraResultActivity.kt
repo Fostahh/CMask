@@ -26,8 +26,7 @@ class CameraResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraResultBinding
     private lateinit var mAuth: FirebaseAuth
-    private lateinit var databaseReference1: DatabaseReference
-    private lateinit var databaseReference2: DatabaseReference
+    private lateinit var databaseReference: DatabaseReference
     private lateinit var timeStamp: String
     private lateinit var bitmap: Bitmap
 
@@ -46,11 +45,8 @@ class CameraResultActivity : AppCompatActivity() {
         timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         mAuth = FirebaseAuth.getInstance()
         mAuth.currentUser?.uid?.let {
-            databaseReference1 =
-                FirebaseDatabase.getInstance().reference.child("Users").child(it).child("History/Classification")
-                    .child(timeStamp)
-            databaseReference2 =
-                FirebaseDatabase.getInstance().reference.child("Users").child(it).child("History/ObjectDetection")
+            databaseReference =
+                FirebaseDatabase.getInstance().reference.child("Users").child(it).child("History")
                     .child(timeStamp)
         }
 
@@ -67,6 +63,7 @@ class CameraResultActivity : AppCompatActivity() {
                     binding.textViewImageResultAccuracy.text = "Akurasi: ${it.nilaiAkurat}"
                     binding.imageViewIncorrect.visibility = View.VISIBLE
                 } else {
+                    binding.linearLayoutObjectDetection.visibility = View.GONE
                     binding.textViewImageResultKeterangan.text =
                         resources.getString(R.string.keterangan, it.keterangan)
                     binding.textViewImageResultAccuracy.text = "Akurasi: ${it.nilaiAkurat}"
@@ -88,11 +85,12 @@ class CameraResultActivity : AppCompatActivity() {
 
     private fun uploadResponseObjectDetectionToFirebase(imageUrl: String?) {
         val historyInfo = HashMap<String, Any>()
+        historyInfo["feature"] = "Object Detection"
         historyInfo["photoUrl"] = imageUrl.toString()
         historyInfo["date"] = getCurrentDate()
         historyInfo["time"] = getCurrentTime()
 
-        databaseReference2.updateChildren(historyInfo).addOnCompleteListener {
+        databaseReference.updateChildren(historyInfo).addOnCompleteListener {
             if (it.isSuccessful) {
                 Toast.makeText(this, "Data Uploaded", Toast.LENGTH_SHORT).show()
             } else {
@@ -103,12 +101,13 @@ class CameraResultActivity : AppCompatActivity() {
 
     private fun uploadResponseClassificationToFirebase(keterangan: String, nilaiAkurat: Double) {
         val historyInfo = HashMap<String, Any>()
+        historyInfo["feature"] = "Classification"
         historyInfo["keterangan"] = keterangan
         historyInfo["nilaiAkurat"] = nilaiAkurat
         historyInfo["date"] = getCurrentDate()
         historyInfo["time"] = getCurrentTime()
 
-        databaseReference1.updateChildren(historyInfo).addOnCompleteListener {
+        databaseReference.updateChildren(historyInfo).addOnCompleteListener {
             if (it.isSuccessful) {
                 uploadImageToFirebase()
             } else {

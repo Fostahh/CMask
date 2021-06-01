@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_splash"
     tools:context=".ui.fragments.CameraFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_opacity4"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -17,25 +23,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/classification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/robotobold"
+        android:text="Classification"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonKlasifikasi"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonKlasifikasi"
+        app:layout_constraintStart_toStartOf="@+id/imageButtonKlasifikasi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageButton
         android:id="@+id/imageButtonKlasifikasi"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="24dp"
         android:scaleType="fitXY"
-        android:src="@drawable/klasifikasi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/classification" />
+
+    <TextView
+        android:id="@+id/object"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/robotobold"
+        android:text="Object Detection"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonKlasifikasi" />
 
     <ImageButton
         android:id="@+id/imageButtonObjectDetection"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="250dp"
         android:scaleType="fitXY"
-        android:src="@drawable/object_detection"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonKlasifikasi" />
+        app:layout_constraintTop_toBottomOf="@+id/object" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

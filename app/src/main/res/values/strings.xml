@@ -29,7 +29,7 @@
     <string name="all_photos">All Photos</string>
     <string name="button">button</string>
     <string name="name_user">Alex Hartley</string>
-    <string name="recent_photos">Recent Photos</string>
+    <string name="recent_photos">Recent Photo</string>
     <string name="change_profile_photo">Change Profile Photo</string>
     <string name="name">Name</string>
     <string name="email_user">alex99@yopmail.com</string>
@@ -47,4 +47,7 @@
     <string name="akurasi">Akurasi: %d</string>
     <string name="insert_your_password_here">Enter your password</string>
     <string name="enter_your_username">Enter your username</string>
+    <string name="time_stamp">%1s %2s</string>
+    <string name="see_detail">See Detail</string>
+    <string name="you_don_t_have_any_recent_photo">You do not have any recent photo</string>
 </resources>

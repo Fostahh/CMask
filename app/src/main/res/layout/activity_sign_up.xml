@@ -22,7 +22,7 @@
         android:id="@+id/imageViewLogoLogin"
         android:layout_width="200dp"
         android:layout_height="150dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/maask"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

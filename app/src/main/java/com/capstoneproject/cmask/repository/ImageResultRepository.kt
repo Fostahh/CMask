@@ -10,7 +10,6 @@ class ImageResultRepository(private val dataSource: DataSource) : RepositoryInte
     override fun uploadImage(body: MultipartBody.Part): LiveData<UploadResponse> =
         dataSource.uploadImage(body)
 
-
     override fun uploadImageObjectDetection(url: String, body: MultipartBody.Part): LiveData<ObjectDetectionResponse> =
         dataSource.uploadImageObjectDetection(url, body)
 

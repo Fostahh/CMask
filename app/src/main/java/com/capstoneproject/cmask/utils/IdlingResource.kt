@@ -6,7 +6,7 @@ object IdlingResource {
 
     private const val RESOURCE = "GLOBAL"
 
-    val idlingResource = CountingIdlingResource(RESOURCE)
+    private val idlingResource = CountingIdlingResource(RESOURCE)
 
 
     fun increment() {

@@ -9,14 +9,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.capstoneproject.cmask.BuildConfig
+import com.capstoneproject.cmask.R
 import com.capstoneproject.cmask.databinding.FragmentCameraBinding
 import com.capstoneproject.cmask.di.Injection
 import com.capstoneproject.cmask.ui.activities.CameraResultActivity
@@ -49,11 +48,15 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCameraBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Glide.with(this).load(R.drawable.crowd).into(binding.imageButtonObjectDetection)
+        Glide.with(this).load(R.drawable.klasifikasi_orang).into(binding.imageButtonKlasifikasi)
+
         binding.imageButtonKlasifikasi.setOnClickListener {
             decision = 1
             dispatchTakePictureIntent()
@@ -89,11 +92,10 @@ class CameraFragment : Fragment() {
             }
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            binding.progressBar.visibility = View.VISIBLE
+            loading()
             val imageBitmap = BitmapFactory.decodeFile(photoFile?.absolutePath)
             val reducedImageBitmap = getResizedBitmap(imageBitmap)
             val convertedFile = convertBitmapToFile(reducedImageBitmap)
@@ -101,6 +103,17 @@ class CameraFragment : Fragment() {
                 convertFileToMultipartBody(it)
             }
         }
+    }
+
+
+
+    private fun loading() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.imageButtonObjectDetection.visibility = View.GONE
+        binding.imageButtonKlasifikasi.visibility = View.GONE
+        binding.`object`.visibility = View.GONE
+        binding.classification.visibility = View.GONE
+        activity?.window?.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 
     private fun getResizedBitmap(image: Bitmap): Bitmap {
@@ -169,6 +182,5 @@ class CameraFragment : Fragment() {
                     startActivity(intent)
                 })
         }
-
     }
 }

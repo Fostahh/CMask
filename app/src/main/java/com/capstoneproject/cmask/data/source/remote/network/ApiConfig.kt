@@ -24,5 +24,5 @@ object ApiConfig {
         .client(client)
         .build()
 
-    val apiInstance = retrofit.create(ApiService::class.java)
+    val apiInstance: ApiService = retrofit.create(ApiService::class.java)
 }

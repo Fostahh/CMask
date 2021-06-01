@@ -55,8 +55,8 @@
 
         <ImageView
             android:id="@+id/imageViewAbout"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
@@ -67,15 +67,13 @@
 
         <ImageView
             android:id="@+id/imageViewAboutDescription"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout"
-            app:layout_constraintVertical_bias="1" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout" />
 
         <TextView
             android:id="@+id/textViewAboutName"
@@ -83,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Mohammad Azri Khairuddin"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription"
@@ -96,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Android"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription"
@@ -105,27 +103,25 @@
 
         <ImageView
             android:id="@+id/imageViewAbout2"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewAbout"
+            app:layout_constraintStart_toEndOf="@id/imageViewAbout"
             app:layout_constraintTop_toBottomOf="@+id/txt_about" />
 
         <ImageView
             android:id="@+id/imageViewAboutDescription2"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout2"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout2"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout2"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout2"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout2" />
 
         <TextView
             android:id="@+id/textViewAboutName2"
@@ -133,7 +129,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Salsabilla Haurameuthia"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription2"
@@ -146,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Android"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription2"
@@ -155,28 +151,25 @@
 
         <ImageView
             android:id="@+id/imageViewAbout3"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription" />
 
         <ImageView
             android:id="@+id/imageViewAboutDescription3"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout3"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout3"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout3"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout3"
-            app:layout_constraintVertical_bias="1" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout3" />
 
         <TextView
             android:id="@+id/textViewAboutName3"
@@ -184,7 +177,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Priscillia Inggrid Tanditastik"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription3"
@@ -197,36 +190,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Cloud"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription3"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription3"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAboutName3"
+            app:layout_constraintStart_toStartOf="@+id/textViewAboutName3"
             app:layout_constraintTop_toBottomOf="@+id/textViewAboutName3" />
 
         <ImageView
             android:id="@+id/imageViewAbout4"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewAbout3"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout2" />
+            app:layout_constraintStart_toEndOf="@id/imageViewAbout3"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription2" />
 
         <ImageView
             android:id="@+id/imageViewAboutDescription4"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout4"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout4"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout4"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout4"
-            app:layout_constraintVertical_bias="1" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout4" />
 
         <TextView
             android:id="@+id/textViewAboutName4"
@@ -234,7 +225,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Agastya Pandu"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription4"
@@ -247,38 +238,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Cloud"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription4"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription4"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAboutName4"
+            app:layout_constraintStart_toStartOf="@+id/textViewAboutName4"
             app:layout_constraintTop_toBottomOf="@+id/textViewAboutName4" />
 
         <ImageView
             android:id="@+id/imageViewAbout5"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewAbout6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription3" />
 
         <ImageView
             android:id="@+id/imageViewAboutDescription5"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout5"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout5"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout5"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout5"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout5" />
 
         <TextView
             android:id="@+id/textViewAboutName5"
@@ -286,7 +275,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Kevin Christian Chanda"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription5"
@@ -299,39 +288,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Machine Learning"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription5"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription5"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAboutName5"
+            app:layout_constraintStart_toStartOf="@+id/textViewAboutName5"
             app:layout_constraintTop_toBottomOf="@+id/textViewAboutName5" />
 
         <ImageView
             android:id="@+id/imageViewAbout6"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="140dp"
+            android:layout_height="125dp"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewAbout5"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout4" />
+            app:layout_constraintStart_toEndOf="@id/imageViewAbout5"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription4" />
 
         <ImageView
             android:id="@+id/imageViewAboutDescription6"
-            android:layout_width="110dp"
-            android:layout_height="35dp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/square"
             android:contentDescription="@string/shape"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewAbout6"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAbout6"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/imageViewAbout6"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAbout6"
-            app:layout_constraintVertical_bias="1" />
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAbout6" />
 
         <TextView
             android:id="@+id/textViewAboutName6"
@@ -339,7 +325,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_about"
+            android:text="Moh. Faisal"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription6"
@@ -352,11 +338,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:fontFamily="@font/roboto"
-            android:text="@string/name_path"
+            android:text="Machine Learning"
             android:textColor="@color/white"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageViewAboutDescription6"
-            app:layout_constraintStart_toStartOf="@+id/imageViewAboutDescription6"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAboutName6"
+            app:layout_constraintStart_toStartOf="@+id/textViewAboutName6"
             app:layout_constraintTop_toBottomOf="@+id/textViewAboutName6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
