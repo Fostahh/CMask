@@ -1,6 +1,7 @@
 package com.capstoneproject.cmask.ui.activities
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -26,6 +27,7 @@ class DetailProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailProfileBinding.inflate(layoutInflater)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()

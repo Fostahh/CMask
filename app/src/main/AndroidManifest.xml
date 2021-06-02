@@ -24,8 +24,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CMask">
-        <activity android:name=".ui.activities.HistoryActivity"/>
+        android:theme="@style/Theme.CMask"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activities.HistoryActivity" />
         <activity android:name=".ui.activities.FirstGoogleSignInActivity" />
         <activity
             android:name=".ui.activities.AboutUsActivity"

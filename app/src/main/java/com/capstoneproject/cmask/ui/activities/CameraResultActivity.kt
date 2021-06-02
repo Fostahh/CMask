@@ -2,6 +2,7 @@ package com.capstoneproject.cmask.ui.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -40,6 +41,7 @@ class CameraResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraResultBinding.inflate(layoutInflater)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         setContentView(binding.root)
 
         timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())

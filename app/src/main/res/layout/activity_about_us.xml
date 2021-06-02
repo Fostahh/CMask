@@ -61,6 +61,7 @@
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toStartOf="@+id/imageViewAbout2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_about" />
@@ -109,6 +110,7 @@
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageViewAbout"
             app:layout_constraintTop_toBottomOf="@+id/txt_about" />
@@ -155,6 +157,7 @@
             android:layout_height="125dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/button_about"
+
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
             app:layout_constraintEnd_toStartOf="@+id/imageViewAbout4"
@@ -253,6 +256,7 @@
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toStartOf="@+id/imageViewAbout6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription3" />
@@ -303,6 +307,7 @@
             android:background="@drawable/button_about"
             android:backgroundTint="@color/white"
             android:contentDescription="@string/shape"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageViewAbout5"
             app:layout_constraintTop_toBottomOf="@+id/imageViewAboutDescription4" />
