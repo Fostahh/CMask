@@ -24,7 +24,7 @@ class HomeRecyclerViewAdapter: RecyclerView.Adapter<HomeRecyclerViewAdapter.View
         RecyclerView.ViewHolder(binding.root) {
         fun bind(history: History) {
             binding.apply {
-                history.photo?.let {
+                history.photoUrl?.let {
                     Picasso.get().load(it).into(binding.imageViewHistoryHome)
                 } ?: run {
                     val dateSplit = history.date?.split("/")?.joinToString("")

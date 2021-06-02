@@ -1,6 +1,7 @@
 package com.capstoneproject.cmask.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.capstoneproject.cmask.R
@@ -25,16 +26,27 @@ class HistoryRecyclerViewAdapter : RecyclerView.Adapter<HistoryRecyclerViewAdapt
         RecyclerView.ViewHolder(binding.root) {
         fun bind(history: History) {
             binding.apply {
-                textViewHistoryAccuracyValue.text = "${history.nilaiAkurat}"
+                history.nilaiAkurat?.let {
+                    textViewHistoryAccuracyValue.text = "${history.nilaiAkurat}"
+                } ?: run {
+                    textViewHistoryAccuracyValue.visibility = View.GONE
+                    textViewHistoryAccuracy.visibility = View.GONE
+                }
+
                 textViewHistoryTitle.text = history.feature
-                val timestamp = binding.root.resources.getString(R.string.time_stamp, history.date, history.time)
+                val timestamp = binding.root.resources.getString(
+                    R.string.time_stamp,
+                    history.date,
+                    history.time
+                )
                 textViewHistoryTimeStamp.text = timestamp
-                history.photo?.let {
+                history.photoUrl?.let {
                     Picasso.get().load(it).into(binding.imageView)
                 } ?: run {
                     val dateSplit = history.date?.split("/")?.joinToString("")
                     val timeSplit = history.time?.split(":")?.joinToString("")
-                    val storageReference = FirebaseStorage.getInstance().reference.child("users/" + FirebaseAuth.getInstance().currentUser?.uid + "/history/${dateSplit}_${timeSplit}.jpg")
+                    val storageReference =
+                        FirebaseStorage.getInstance().reference.child("users/" + FirebaseAuth.getInstance().currentUser?.uid + "/history/${dateSplit}_${timeSplit}.jpg")
                     storageReference.downloadUrl.addOnSuccessListener {
                         Picasso.get().load(it).into(binding.imageView)
                     }

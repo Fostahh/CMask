@@ -2,6 +2,7 @@ package com.capstoneproject.cmask.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,6 +61,8 @@ class HomeFragment : Fragment() {
                             histories.add(it)
                         }
                     }
+
+                    Log.d("HistoryValue", "${histories}")
 
                     if (histories.size > 0) {
                         binding.apply {

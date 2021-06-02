@@ -68,7 +68,7 @@ class ProfileFragment : Fragment() {
                     }
                     if (histories.isNotEmpty()) {
                         histories[histories.lastIndex].let {
-                            it.photo?.let { imageUrl ->
+                            it.photoUrl?.let { imageUrl ->
                                 Picasso.get().load(imageUrl).into(binding.imageViewRecentPhotoItem1)
                                 binding.imageViewRecentPhotoItem1.visibility = View.VISIBLE
                             } ?: run {

@@ -6,9 +6,9 @@ class History(
     var keterangan: String? = null,
     var nilaiAkurat: Double? = null,
     var time: String? = null,
-    var photo: String? = null
+    var photoUrl: String? = null
 ) {
     override fun toString(): String {
-        return "$date $feature $keterangan $nilaiAkurat $time $photo"
+        return "$date $feature $keterangan $nilaiAkurat $time $photoUrl"
     }
 }
