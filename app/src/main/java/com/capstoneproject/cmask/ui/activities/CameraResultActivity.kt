@@ -58,18 +58,18 @@ class CameraResultActivity : AppCompatActivity() {
             val uploadResponse: UploadResponse? = intent.getParcelableExtra(RESPONSE_RESULT)
             binding.imageViewResult.setImageBitmap(bitmap)
             uploadResponse?.let {
-                if (it.keterangan == "Tidak Menggunakan") {
-                    binding.linearLayoutObjectDetection.visibility = View.GONE
-                    binding.textViewImageResultKeterangan.text =
-                        resources.getString(R.string.keterangan, it.keterangan)
-                    binding.textViewImageResultAccuracy.text = "Akurasi: ${it.nilaiAkurat}"
-                    binding.imageViewIncorrect.visibility = View.VISIBLE
-                } else {
+                if (it.keterangan == "Correct Mask") {
                     binding.linearLayoutObjectDetection.visibility = View.GONE
                     binding.textViewImageResultKeterangan.text =
                         resources.getString(R.string.keterangan, it.keterangan)
                     binding.textViewImageResultAccuracy.text = "Akurasi: ${it.nilaiAkurat}"
                     binding.imageViewCorrect.visibility = View.VISIBLE
+                } else {
+                    binding.linearLayoutObjectDetection.visibility = View.GONE
+                    binding.textViewImageResultKeterangan.text =
+                        resources.getString(R.string.keterangan, it.keterangan)
+                    binding.textViewImageResultAccuracy.text = "Akurasi: ${it.nilaiAkurat}"
+                    binding.imageViewIncorrect.visibility = View.VISIBLE
                 }
                 it.keterangan?.let { keterangan ->
                     it.nilaiAkurat?.let { nilaiAkurat ->
